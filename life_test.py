@@ -1,5 +1,7 @@
 import unittest
 
+from life import Life
+
 class TestLife(unittest.TestCase):
 
     def test_next__returns_blank_board_of_requested_dimensions_if_no_starting_items(self):
