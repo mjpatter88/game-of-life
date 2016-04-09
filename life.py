@@ -14,7 +14,7 @@ class Life():
 
         next_cells = []
         for cell, neighbor_count in cell_neighbors.items():
-            if self._is_alive(cell) and neighbor_count == 2:
+            if self._is_alive(cell) and neighbor_count in (2, 3):
                 next_cells.append(cell)
 
         board = _make_blank_board(width, height)
