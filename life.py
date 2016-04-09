@@ -49,3 +49,20 @@ def _make_blank_board(width, height):
         new_row = [0] * width
         board.append(new_row)
     return board
+
+
+if __name__ == '__main__':
+    import os
+    import time
+    import pprint
+
+    width = 6
+    height = 6
+    starting_cells = [(1,1), (1,2), (2,1), (2,2), (3,3), (3,4), (4,3), (4,4)]
+    life = Life(starting_cells)
+
+    for x in range(100):
+        os.system('clear')
+        pprint.pprint(life.next(width, height))
+        print("\n\nIteration: {}".format(x))
+        time.sleep(.25)
