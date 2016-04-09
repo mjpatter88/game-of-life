@@ -42,6 +42,21 @@ class TestLife(unittest.TestCase):
 
         self.assertEqual(next_board[1][2], 1, 'Board[1][2] was not alive.')
 
+    def test_next__one_live_cell_with_one_live_neighbors_dies(self):
+        starting_cells = [(1,1), (1,2)]
+        life = Life(starting_cells)
+
+        next_board = life.next(self.width, self.height)
+
+        self.assertEqual(next_board[1][2], 0, 'Board[1][2] was not dead.')
+
+    def test_next__one_live_cell_with_zero_live_neighbors_dies(self):
+        starting_cells = [(1,1)]
+        life = Life(starting_cells)
+
+        next_board = life.next(self.width, self.height)
+
+        self.assertEqual(next_board[1][1], 0, 'Board[1][1] was not dead.')
 
 if __name__ == '__main__':
     unittest.main()
