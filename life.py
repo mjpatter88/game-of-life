@@ -31,14 +31,14 @@ class Life():
 
     def _mark_neighbors(self, cell, cell_neighbors):
         row, col = cell
-        cell_neighbors[(row+1, col+1)]+=1
-        cell_neighbors[(row+1, col)]+=1
-        cell_neighbors[(row+1, col-1)]+=1
-        cell_neighbors[(row, col+1)]+=1
-        cell_neighbors[(row, col-1)]+=1
         cell_neighbors[(row-1, col-1)]+=1
         cell_neighbors[(row-1, col)]+=1
         cell_neighbors[(row-1, col+1)]+=1
+        cell_neighbors[(row, col+1)]+=1
+        cell_neighbors[(row, col-1)]+=1
+        cell_neighbors[(row+1, col-1)]+=1
+        cell_neighbors[(row+1, col)]+=1
+        cell_neighbors[(row+1, col+1)]+=1
 
     def _is_alive(self, cell):
         return cell in self.cells
