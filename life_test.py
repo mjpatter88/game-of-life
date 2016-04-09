@@ -66,5 +66,17 @@ class TestLife(unittest.TestCase):
 
         self.assertEqual(next_board[2][2], 1, 'Board[2][2] was not alive.')
 
+    def test_next__called_twice_block_of_four_living_all_stay_alive(self):
+        starting_cells = [(1,1), (1,2), (2,1), (2,2)]
+        life = Life(starting_cells)
+
+        life.next(self.width, self.height)
+        next_board = life.next(self.width, self.height)
+
+        self.assertEqual(next_board[1][1], 1, 'Board[1][1] was not alive.')
+        self.assertEqual(next_board[1][2], 1, 'Board[1][2] was not alive.')
+        self.assertEqual(next_board[2][1], 1, 'Board[2][1] was not alive.')
+        self.assertEqual(next_board[2][2], 1, 'Board[2][2] was not alive.')
+
 if __name__ == '__main__':
     unittest.main()
