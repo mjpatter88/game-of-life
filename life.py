@@ -55,10 +55,15 @@ if __name__ == '__main__':
     import os
     import time
     import pprint
+    from ast import literal_eval
+
+    starting_cells = []
+    with open('beacon.txt', 'r') as in_file:
+        for line in in_file.readlines():
+            starting_cells.append(literal_eval(line))
 
     width = 6
     height = 6
-    starting_cells = [(1,1), (1,2), (2,1), (2,2), (3,3), (3,4), (4,3), (4,4)]
     life = Life(starting_cells)
 
     for x in range(100):
