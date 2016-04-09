@@ -70,7 +70,7 @@ class TestLife(unittest.TestCase):
         starting_cells = [(1,1), (1,2), (2,1), (2,2)]
         life = Life(starting_cells)
 
-        life.next(self.width, self.height)
+        next_board =life.next(self.width, self.height)
         next_board = life.next(self.width, self.height)
 
         self.assertEqual(next_board[1][1], 1, 'Board[1][1] was not alive.')

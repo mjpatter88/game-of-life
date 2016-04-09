@@ -19,22 +19,26 @@ class Life():
             if not self._is_alive(cell) and neighbor_count == 3:
                 next_cells.append(cell)
 
-        board = _make_blank_board(width, height)
-        for x, y in next_cells:
-            board[x][y] = 1
+        self.cells = next_cells
 
+        return self._get_current_board(width, height)
+
+    def _get_current_board(self, width, height):
+        board = _make_blank_board(width, height)
+        for row, col in self.cells:
+            board[row][col] = 1
         return board
 
     def _mark_neighbors(self, cell, cell_neighbors):
-        x, y = cell
-        cell_neighbors[(x+1, y+1)]+=1
-        cell_neighbors[(x+1, y)]+=1
-        cell_neighbors[(x+1, y-1)]+=1
-        cell_neighbors[(x, y+1)]+=1
-        cell_neighbors[(x, y-1)]+=1
-        cell_neighbors[(x-1, y-1)]+=1
-        cell_neighbors[(x-1, y)]+=1
-        cell_neighbors[(x-1, y-1)]+=1
+        row, col = cell
+        cell_neighbors[(row+1, col+1)]+=1
+        cell_neighbors[(row+1, col)]+=1
+        cell_neighbors[(row+1, col-1)]+=1
+        cell_neighbors[(row, col+1)]+=1
+        cell_neighbors[(row, col-1)]+=1
+        cell_neighbors[(row-1, col-1)]+=1
+        cell_neighbors[(row-1, col)]+=1
+        cell_neighbors[(row-1, col+1)]+=1
 
     def _is_alive(self, cell):
         return cell in self.cells
