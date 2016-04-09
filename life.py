@@ -44,11 +44,7 @@ class Life():
         return cell in self.cells
 
 def _make_blank_board(width, height):
-    board = []
-    for row in range(height):
-        new_row = [0] * width
-        board.append(new_row)
-    return board
+    return [[0]*width for row in range(height)]
 
 
 if __name__ == '__main__':
