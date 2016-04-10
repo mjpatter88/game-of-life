@@ -72,13 +72,20 @@ if __name__ == '__main__':
     circle = '\u25CF'
     rectangle = '\u25A0'
 
+    if os.name == 'nt':
+        live_char = '+'
+        clear_command = 'cls'
+    else:
+        live_char = rectangle
+        clear_command = 'clear'
+
     for x in range(1000):
-        os.system('clear')
+        os.system(clear_command)
         board = life.next(width, height)
         for row in board:
             for col in row:
                 if col:
-                    print(rectangle, end='')
+                    print(live_char, end='')
                 else:
                     print(' ', end='')
             print()
