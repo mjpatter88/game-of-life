@@ -63,7 +63,8 @@ if __name__ == '__main__':
     starting_cells = []
     with open(filename, 'r') as in_file:
         for line in in_file.readlines():
-            starting_cells.append(literal_eval(line))
+            if line[0] == '(':
+                starting_cells.append(literal_eval(line))
 
     life = Life(starting_cells)
 
