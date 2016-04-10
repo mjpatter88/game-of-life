@@ -51,12 +51,17 @@ def _make_blank_board(width, height):
 
 if __name__ == '__main__':
     import os
+    import sys
     import time
     import pprint
     from ast import literal_eval
 
+    filename = 'beacon.txt'
+    if len(sys.argv) >= 2:
+        filename = sys.argv[1]
+
     starting_cells = []
-    with open('beacon.txt', 'r') as in_file:
+    with open(filename, 'r') as in_file:
         for line in in_file.readlines():
             starting_cells.append(literal_eval(line))
 
