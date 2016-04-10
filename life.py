@@ -25,8 +25,10 @@ class Life():
 
     def _get_current_board(self, width, height):
         board = _make_blank_board(width, height)
-        for row, col in self.cells:
-            board[row][col] = 1
+        for row in range(height):
+            for col in range(width):
+                if (row, col) in self.cells:
+                    board[row][col] = 1
         return board
 
     def _mark_neighbors(self, cell, cell_neighbors):
