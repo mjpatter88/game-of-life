@@ -69,6 +69,10 @@ if __name__ == '__main__':
 
     for x in range(100):
         os.system('clear')
-        pprint.pprint(life.next(width, height))
+        board = life.next(width, height)
+        for row in board:
+            for col in row:
+                print(col, end='')
+            print()
         print("\n\nIteration: {}".format(x))
         time.sleep(.25)
