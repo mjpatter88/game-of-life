@@ -78,6 +78,26 @@ class TestLife(unittest.TestCase):
         self.assertEqual(next_board[2][1], 1, 'Board[2][1] was not alive.')
         self.assertEqual(next_board[2][2], 1, 'Board[2][2] was not alive.')
 
+    def test_next__doesnt_break_on_negative_numbers(self):
+        starting_cells = [(0,0), (1,0), (2,0)]
+        life = Life(starting_cells)
+
+        next_board = life.next(self.width, self.height)
+        expected_board = [
+                [0,0,0,0,0],
+                [1,1,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0]]
+        self.assertEqual(next_board, expected_board, 'negative numbers not handled correctly.')
+
+        next_board = life.next(self.width, self.height)
+        expected_board = [
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [0,0,0,0,0]]
+        self.assertEqual(next_board, expected_board, 'negative numbers not handled correctly.')
+
     def test_next__preserves_the_beacon_oscillation(self):
         height = 6
         width = 6
