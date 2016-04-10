@@ -69,12 +69,18 @@ if __name__ == '__main__':
 
     life = Life(starting_cells)
 
-    for x in range(100):
+    circle = '\u25CF'
+    rectangle = '\u25A0'
+
+    for x in range(1000):
         os.system('clear')
         board = life.next(width, height)
         for row in board:
             for col in row:
-                print(col, end='')
+                if col:
+                    print(rectangle, end='')
+                else:
+                    print(' ', end='')
             print()
         print("\n\nIteration: {}".format(x))
         time.sleep(1.0/speed)
