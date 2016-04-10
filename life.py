@@ -56,17 +56,15 @@ if __name__ == '__main__':
     import pprint
     from ast import literal_eval
 
-    filename = 'beacon.txt'
-    if len(sys.argv) >= 2:
-        filename = sys.argv[1]
+    filename = sys.argv[1] if len(sys.argv) >= 2 else 'beacon.txt'
+    width = int(sys.argv[2]) if len(sys.argv) >= 3 else 6
+    height = int(sys.argv[3]) if len(sys.argv) >= 4 else 6
 
     starting_cells = []
     with open(filename, 'r') as in_file:
         for line in in_file.readlines():
             starting_cells.append(literal_eval(line))
 
-    width = 6
-    height = 6
     life = Life(starting_cells)
 
     for x in range(100):
