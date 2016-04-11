@@ -68,15 +68,11 @@ if __name__ == '__main__':
                 starting_cells.append(literal_eval(line))
 
     life = Life(starting_cells)
-
-    circle = '\u25CF'
-    rectangle = '\u25A0'
+    live_char = '+'
 
     if os.name == 'nt':
-        live_char = '+'
         clear_command = 'cls'
     else:
-        live_char = rectangle
         clear_command = 'clear'
 
     for x in range(1000):
